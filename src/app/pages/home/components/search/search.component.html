@@ -5,9 +5,18 @@
     </div>
     <div class="col-md-10">
       <div class="input-group">
-        <input type="text" class="form-controls" placeholder="Search..." />
+        <input
+          type="text"
+          class="form-controls"
+          placeholder="Search..."
+          [(ngModel)]="searchTerm"
+        />
         <div class="input-group-append">
-          <button type="button" class="btn btn-outline-secondary">
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="searchWeb()"
+          >
             <em class="fa fa-search"></em>
           </button>
         </div>
