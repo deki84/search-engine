@@ -1,3 +1,4 @@
+import { SearchService } from './../../../../services/search.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
   searchTerm = '';
 
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {}
 
   searchWeb(): void {
-    console.log('search Term', this.searchTerm);
+    if (this.searchTerm === '') return;
+    this.searchService.getResults(this.searchTerm).subscribe(
+      (res: any) => {
+        this.searchService.passResults({
+          results: res.value,
+          count: res.totalCount,
+        });
+      },
+      (err: any) => {
+        console.log('Error Occured', err);
+      }
+    );
   }
 }
