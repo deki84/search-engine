@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/home/components/search/search.component';
 import { ResultsComponent } from './pages/home/components/results/results.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     ResultsComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
